@@ -115,12 +115,28 @@ body {
 }
 
 .hero-greeting {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
+
+.resume-download {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.resume-download a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.resume-download a:hover {
+    color: var(--link-red);
+    text-decoration: underline;
+}
+/*
 .hero-avatar-container {
     position: relative;
     display: inline-block;
@@ -140,6 +156,7 @@ body {
     filter: blur(40px);
     animation: pulse 3s ease-in-out infinite;
 }
+*/
 
 @keyframes pulse {
     0%, 100% {
