@@ -95,23 +95,32 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Blur hero content when about section is visible
+// Gradually blur hero content and resume button while scrolling down.
 const heroContent = document.querySelector('.hero-content');
-const aboutSection = document.querySelector('#about');
+const resumeDownload = document.querySelector('.resume-download');
 
-if (heroContent && aboutSection) {
-    const blurObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                heroContent.classList.add('blurred');
-            } else {
-                heroContent.classList.remove('blurred');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px'
-    });
+const updateHeroBlur = () => {
+    if (!heroContent && !resumeDownload) return;
 
-    blurObserver.observe(aboutSection);
-}
+    const scrollY = window.scrollY;
+    const blurStart = 80;
+    const blurRange = window.innerHeight * 0.5;
+    const progress = Math.min(Math.max((scrollY - blurStart) / blurRange, 0), 1);
+
+    const blurPx = progress * 8;
+    const opacity = 1 - progress * 0.7;
+
+    if (heroContent) {
+        heroContent.style.filter = `blur(${blurPx}px)`;
+        heroContent.style.opacity = opacity.toString();
+    }
+
+    if (resumeDownload) {
+        resumeDownload.style.filter = `blur(${blurPx}px)`;
+        resumeDownload.style.opacity = opacity.toString();
+    }
+};
+
+window.addEventListener('scroll', updateHeroBlur);
+window.addEventListener('resize', updateHeroBlur);
+updateHeroBlur();
