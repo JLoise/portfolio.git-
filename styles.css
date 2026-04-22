@@ -41,6 +41,7 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1.5rem 0;
+    
 }
 
 .header-content {
@@ -101,6 +102,7 @@ body {
     padding: 8rem 0 4rem;
     position: relative;
     overflow: hidden;
+    scroll-margin-top: 4rem;
 }
 
 .hero-content {
@@ -234,6 +236,7 @@ body {
 /* About Section */
 .about {
     padding: 6rem 0;
+    scroll-margin-top: 4rem;
 }
 
 .about-title {
@@ -602,6 +605,7 @@ body {
 .contact {
     padding: 6rem 0;
     text-align: center;
+    scroll-margin-top: 4rem;
 }
 
 .contact-cta {

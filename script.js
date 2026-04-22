@@ -16,7 +16,7 @@ navLinks.forEach(link => {
     });
 });
 
-// Close mobile menu when clicking outside
+// Close mobile menu when clicking outside 
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav') && navList.classList.contains('active')) {
         mobileMenuToggle.classList.remove('active');
