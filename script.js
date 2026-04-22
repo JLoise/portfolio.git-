@@ -30,7 +30,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerOffset = 80;
+            const headerOffset = this.getAttribute('href') === '#top' ? 0 : 80;
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -58,6 +58,12 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
+});
+
+// Ensure page loads at top and remove any hash from URL
+window.addEventListener('load', () => {
+    history.replaceState(null, null, window.location.pathname);
+    window.scrollTo(0, 0);
 });
 
 // Intersection Observer for fade-in animations
@@ -124,3 +130,15 @@ const updateHeroBlur = () => {
 window.addEventListener('scroll', updateHeroBlur);
 window.addEventListener('resize', updateHeroBlur);
 updateHeroBlur();
+
+// Ensure page loads at top and remove any hash from URL
+window.addEventListener('load', () => {
+    history.replaceState(null, null, window.location.pathname);
+    window.scrollTo(0, 0);
+});
+
+// Ensure page loads at top and remove any hash from URL
+window.addEventListener('load', () => {
+    history.replaceState(null, null, window.location.pathname);
+    window.scrollTo(0, 0);
+});
